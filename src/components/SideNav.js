@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles/SideNav.sass';
-
 import LOGO from '../images/logo.png';
 
-class Sidenav extends Component {
+import SideNavMenu from './SideNavMenu';
+
+class SideNav extends Component {
 
   render(){
     return(
@@ -15,16 +16,11 @@ class Sidenav extends Component {
             <img className="img-fluid" src={LOGO} alt="Thor Dashboard logo" />
           </Link>
         </div>
-        <div className="sidenav-menu">
-          <ul className="sidenav-menu-items">
-            
-
-          </ul>
-        </div>
+        <SideNavMenu />
       </div>
     )
   }
 
 }
 
-export default Sidenav;
+export default SideNav;
