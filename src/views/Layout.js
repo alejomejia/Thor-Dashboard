@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react';
 
-import Sidenav from '../components/Sidenav';
+import SideNav from '../components/SideNav';
 
 function Layout(props){
 
   return(
     <Fragment>
-      <Sidenav />
-      {props.children}
+      <SideNav />
+      <div id="content" className="content">
+        {props.children}
+      </div> 
     </Fragment>
   )
 
