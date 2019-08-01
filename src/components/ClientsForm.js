@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 
-class ClientsForm extends Component {
-
-  // Values of the form that I want to save
-  state = {
-    client : {
-      name : '',
-      company : '',
-      email : '',
-      phone : ''
-    }
+// Init state to reset form values after submit
+const initState = {
+  client : {
+    name : '',
+    company : '',
+    email : '',
+    phone : ''
   }
+}
+
+class ClientsForm extends Component {
+  
+  // Copy initial state from const
+  state = {...initState}
 
   // Function to capture what user type on form fields
   handleChange = e => {
@@ -23,9 +26,22 @@ class ClientsForm extends Component {
     });
   }
 
+  // Function to get the info from form fields
+  handleSubmit = e => {
+
+    // Prevent page reload
+    e.preventDefault();
+
+    // Reset form fields values to the initial state (empty)
+    this.setState({
+      ...initState
+    });
+
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <input 
             type="text" 
@@ -33,6 +49,7 @@ class ClientsForm extends Component {
             placeholder="Client name"
             name="name"
             onChange={this.handleChange}
+            value={this.state.client.name}
             required
           />
         </div>
@@ -43,6 +60,7 @@ class ClientsForm extends Component {
             placeholder="Client company"
             name="company"
             onChange={this.handleChange}
+            value={this.state.client.company}
             required
           />
         </div>
@@ -53,6 +71,7 @@ class ClientsForm extends Component {
             placeholder="Client email"
             name="email"
             onChange={this.handleChange}
+            value={this.state.client.email}
             required
           />
         </div>
@@ -63,6 +82,7 @@ class ClientsForm extends Component {
             placeholder="Client phone"
             name="phone"
             onChange={this.handleChange}
+            value={this.state.client.phone}
             required
           />
         </div>
