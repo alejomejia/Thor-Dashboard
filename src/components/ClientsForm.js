@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 
 // Init state to reset form values after submit
 const initState = {
   client : {
+    id: '',
     name : '',
     company : '',
     email : '',
@@ -31,6 +33,12 @@ class ClientsForm extends Component {
 
     // Prevent page reload
     e.preventDefault();
+
+    // Get info from fields after submit
+    const newClientData = {...this.state.client}
+
+    // Add an ID to map
+    newClientData.id = uuid();
 
     // Reset form fields values to the initial state (empty)
     this.setState({
