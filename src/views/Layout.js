@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 
 import SideNav from '../components/SideNav';
 
-function Layout(props){
+const Layout = props => {
 
   return(
     <Fragment>
       <SideNav />
-      <div id="content" className="content">
+      <div id="main-content">
         {props.children}
       </div> 
     </Fragment>
