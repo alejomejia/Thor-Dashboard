@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ClientsList extends Component {
-  render() {
-    return (
-      <div>
-        Cliente 1, 2, 3
+import Client from './Client';
+
+const ClientsList = ({clients}) => {
+  return (
+    <div className="clients-list">
+      <div className="row">
+        <div className="col-md-4">
+          {clients.map( client => (
+            <Client 
+              key={client.id}
+              client={client} 
+            />
+          ))}
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default ClientsList;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ClientsForm from '../components/ClientsForm';
+import ClientsList from '../components/ClientsList';
 
 class Clients extends Component {
 
@@ -35,12 +36,7 @@ class Clients extends Component {
             </div>
           </div>
           <div className="col-md-9">
-            <div className="card">
-              <h5 className="card-header">Clients list</h5>
-              <div className="card-body">
-                Clients list content
-              </div>
-            </div>
+            <ClientsList clients={this.state.clients} />
           </div>
         </div>
       </div>
