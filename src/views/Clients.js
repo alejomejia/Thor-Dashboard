@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component , Fragment } from 'react';
 
+import PageTitle from '../components/PageTitle';
 import ClientsForm from '../components/ClientsForm';
 import ClientsList from '../components/ClientsList';
 
@@ -57,24 +58,29 @@ class Clients extends Component {
 
   render(){
     return(
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
-            <div className="card">
-              <h5 className="card-header">Add new client</h5>
-              <div className="card-body">
-                <ClientsForm addNewClient={this.addNewClient} />
+      <Fragment>
+        <PageTitle title="Clients" />
+        <div className="content-wrapper">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-md-3">
+                <div className="card">
+                  <h5 className="card-header">Add new client</h5>
+                  <div className="card-body">
+                    <ClientsForm addNewClient={this.addNewClient} />
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-9">
+                <ClientsList 
+                  clients={this.state.clients} 
+                  deleteClient={this.deleteClient} 
+                />
               </div>
             </div>
           </div>
-          <div className="col-md-9">
-            <ClientsList 
-              clients={this.state.clients} 
-              deleteClient={this.deleteClient} 
-            />
-          </div>
         </div>
-      </div>
+      </Fragment>
     )
   }
 
