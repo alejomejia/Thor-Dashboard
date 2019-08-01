@@ -10,6 +10,22 @@ class Clients extends Component {
     clients : []
   }
 
+  // Look on Local Storage if it has saved values
+  componentDidMount(){
+    const clientsFromLS = localStorage.getItem('clients');
+    
+    if( clientsFromLS ){
+      this.setState({
+        clients : JSON.parse( clientsFromLS )
+      })
+    }
+  }
+
+  // Update clients on local storage when create or delete clients
+  componentDidUpdate(){
+    localStorage.setItem('clients', JSON.stringify(this.state.clients));
+  }
+
   // To get ClientsForm data
   addNewClient = data => {
 
