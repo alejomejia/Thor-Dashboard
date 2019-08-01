@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import uuid from 'uuid';
 
 // Init state to reset form values after submit
@@ -101,6 +102,10 @@ class ClientsForm extends Component {
       </form>
     );
   }
+}
+
+ClientsForm.propTypes = {
+  addNewClient : PropTypes.func.isRequired
 }
 
 export default ClientsForm;

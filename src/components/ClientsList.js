@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Client from './Client';
 
@@ -16,6 +17,11 @@ const ClientsList = ({clients, deleteClient}) => {
       </div>
     </div>
   );
+}
+
+ClientsList.propTypes = {
+  clients : PropTypes.array.isRequired,
+  deleteClient : PropTypes.func.isRequired
 }
 
 export default ClientsList;
