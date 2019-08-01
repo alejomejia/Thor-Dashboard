@@ -4,11 +4,28 @@ import ClientsForm from '../components/ClientsForm';
 
 class Clients extends Component {
 
+  // Store clients from the Form data
+  state = {
+    clients : []
+  }
+
+  // To get ClientsForm data
+  addNewClient = data => {
+
+    // Copy actual state
+    const newClient = [...this.state.clients, data];
+
+    // Add tne new client data to the array
+    this.setState({
+      clients : newClient
+    });
+
+  }
+
   render(){
     return(
       <div className="container-fluid">
         <div className="row">
-
           <div className="col-md-3">
             <div className="card">
               <h5 className="card-header">Add new client</h5>
@@ -25,7 +42,6 @@ class Clients extends Component {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     )

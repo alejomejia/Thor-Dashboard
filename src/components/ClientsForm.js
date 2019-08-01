@@ -40,6 +40,9 @@ class ClientsForm extends Component {
     // Add an ID to map
     newClientData.id = uuid();
 
+    // Send the data to this component prop
+    this.props.addNewClient(newClientData);
+
     // Reset form fields values to the initial state (empty)
     this.setState({
       ...initState
