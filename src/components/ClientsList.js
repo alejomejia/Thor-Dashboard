@@ -2,7 +2,7 @@ import React from 'react';
 
 import Client from './Client';
 
-const ClientsList = ({clients}) => {
+const ClientsList = ({clients, deleteClient}) => {
   return (
     <div className="clients-list">
       <div className="row">
@@ -11,6 +11,7 @@ const ClientsList = ({clients}) => {
             <Client 
               key={client.id}
               client={client} 
+              deleteClient={deleteClient}
             />
           ))}
         </div>

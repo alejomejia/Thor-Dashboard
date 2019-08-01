@@ -23,6 +23,22 @@ class Clients extends Component {
 
   }
 
+  // Delete client added when click on Delete
+  deleteClient = clientId => {
+    
+    // Make a copy of the actual state
+    const actualClients = [...this.state.clients];
+
+    // Filter by Id, return what I want to keep (delete the click one)
+    const clients = actualClients.filter( client => client.id !== clientId );
+
+    // Update clients state to delete
+    this.setState({
+      clients
+    });
+
+  }
+
   render(){
     return(
       <div className="container-fluid">
@@ -36,7 +52,10 @@ class Clients extends Component {
             </div>
           </div>
           <div className="col-md-9">
-            <ClientsList clients={this.state.clients} />
+            <ClientsList 
+              clients={this.state.clients} 
+              deleteClient={this.deleteClient} 
+            />
           </div>
         </div>
       </div>
