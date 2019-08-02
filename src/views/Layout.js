@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import SideNav from '../components/SideNav';
+import SideNav from '../components/SideNav/SideNav';
 
 const Layout = props => {
 

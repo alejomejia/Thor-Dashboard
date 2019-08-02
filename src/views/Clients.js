@@ -1,8 +1,8 @@
 import React, { Component , Fragment } from 'react';
 
 import PageTitle from '../components/PageTitle';
-import ClientsForm from '../components/ClientsForm';
-import ClientsList from '../components/ClientsList';
+import ClientsForm from '../components/Clients/ClientsForm';
+import ClientsList from '../components/Clients/ClientsList';
 
 class Clients extends Component {
 
