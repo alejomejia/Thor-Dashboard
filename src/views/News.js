@@ -1,6 +1,8 @@
 import React, { Component , Fragment } from 'react';
+import uuid from 'uuid';
 
 import PageTitle from '../components/PageTitle';
+import NewsList from '../components/News/NewsList';
 
 class News extends Component {
 
@@ -22,10 +24,19 @@ class News extends Component {
     const response = await fetch(url);
     const news = await response.json();
 
+    // Get only articles from the news data
+    const articles = news.articles;
+
+    // Add an ID to every article for mapping
+    articles.map(article => (
+      article.id = uuid()
+    ))
+
+    // Add the articles to news state
     this.setState({
-      news : news.articles
+      news : articles
     });
-    
+
   }
 
   render(){
@@ -35,9 +46,9 @@ class News extends Component {
         <div className="content-wrapper">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-md-12">
-                
-              </div>
+              <NewsList 
+                news={this.state.news} 
+              />
             </div>
           </div>
         </div>
