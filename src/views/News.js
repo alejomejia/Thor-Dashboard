@@ -18,10 +18,10 @@ class News extends Component {
   }
 
   // Function to ask the api for news information and store it in the state
-  askForNews = async (category = 'general') => {
+  askForNews = async (category = 'general', country = 'co') => {
 
     const apikey = '06bc37e3bc154006bcf9ab61e4aabb0f';
-    const url = `https://newsapi.org/v2/top-headlines?country=co&category=${category}&apiKey=${apikey}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}`;
     const response = await fetch(url);
     const news = await response.json();
 
@@ -46,16 +46,8 @@ class News extends Component {
         <PageTitle title="News" />
         <div className="content-wrapper">
           <div className="container-fluid">
-            <div className="row">
-              <NewsForm 
-                askForNews={this.askForNews}
-              />
-            </div>
-            <div className="row">
-              <NewsList 
-                news={this.state.news}
-              />
-            </div>
+            <NewsForm askForNews={this.askForNews} />
+            <NewsList news={this.state.news} />
           </div>
         </div>
       </Fragment>
