@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './styles/NewsItem.sass';
 
 const NewsItem = ({item}) => {
@@ -26,6 +27,11 @@ const NewsItem = ({item}) => {
       </div>
     </div>
   );
+}
+
+// Documentation
+NewsItem.propTypes = {
+  item: PropTypes.object.isRequired
 }
 
 export default NewsItem;

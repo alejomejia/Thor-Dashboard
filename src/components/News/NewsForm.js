@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './styles/NewsForm.sass'
 
 class NewsForm extends Component {
@@ -88,6 +89,11 @@ class NewsForm extends Component {
       </div>
     );
   }
+}
+
+// Documentation
+NewsForm.propTypes = {
+  askForNews: PropTypes.func.isRequired
 }
 
 export default NewsForm;
