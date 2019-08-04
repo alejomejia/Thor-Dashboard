@@ -2,6 +2,7 @@ import React, { Component , Fragment } from 'react';
 import uuid from 'uuid';
 
 import PageTitle from '../components/PageTitle';
+import NewsForm from '../components/News/NewsForm';
 import NewsList from '../components/News/NewsList';
 
 class News extends Component {
@@ -17,10 +18,10 @@ class News extends Component {
   }
 
   // Function to ask the api for news information and store it in the state
-  askForNews = async () => {
+  askForNews = async (category = 'general', country = 'co') => {
 
     const apikey = '06bc37e3bc154006bcf9ab61e4aabb0f';
-    const url = `https://newsapi.org/v2/top-headlines?country=co&category=business&apiKey=${apikey}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}`;
     const response = await fetch(url);
     const news = await response.json();
 
@@ -45,11 +46,8 @@ class News extends Component {
         <PageTitle title="News" />
         <div className="content-wrapper">
           <div className="container-fluid">
-            <div className="row">
-              <NewsList 
-                news={this.state.news} 
-              />
-            </div>
+            <NewsForm askForNews={this.askForNews} />
+            <NewsList news={this.state.news} />
           </div>
         </div>
       </Fragment>
