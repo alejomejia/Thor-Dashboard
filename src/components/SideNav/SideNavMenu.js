@@ -12,6 +12,7 @@ class SideNavMenu extends Component {
           <SideNavMenuItem path="/" icon="home" />
           <SideNavMenuItem path="/clients" icon="star" />
           <SideNavMenuItem path="/news" icon="coffee" />
+          <SideNavMenuItem path="/events" icon="calendar" />
         </ul>
       </div>
     )
