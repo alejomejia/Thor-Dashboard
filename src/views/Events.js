@@ -1,13 +1,22 @@
-import React, { Component , Fragment } from 'react';
+import React, { Component } from 'react';
+
+import EventsContext from '../context/EventsContext';
 
 import PageTitle from '../components/PageTitle';
+import EventsForm from '../components/Events/EventsForm';
 
 class Events extends Component {
   render() {
     return (
-      <Fragment>
+      <EventsContext>
         <PageTitle title="Events" />
-      </Fragment>
+        <div className="content-wrapper">
+          <div className="container-fluid">
+            <EventsForm />
+            { /* <NewsList news={this.state.news} /> */ }
+          </div>
+        </div>
+      </EventsContext>
     );
   }
 }
