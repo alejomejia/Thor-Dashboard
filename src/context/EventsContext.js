@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 // Create context
 const context = React.createContext();
-export const eventsConsumer = context.Consumer;
+export const EventsConsumer = context.Consumer;
 
 class EventsContext extends Component {
 

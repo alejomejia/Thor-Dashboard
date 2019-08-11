@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { EventsConsumer } from '../../context/EventsContext';
+
 class EventsForm extends Component {
 
   state = {
@@ -34,7 +36,20 @@ class EventsForm extends Component {
                   id="category"
                   className="custom-select" 
                   name="category">
-                    <option>Test</option>
+                    <EventsConsumer>
+                      {(value)=> {
+                        return(
+                          value.categories.map( category => (
+                            <option 
+                              key={category.id}
+                              value={category.name}
+                            >
+                              {category.name}
+                            </option>
+                          ))
+                        )
+                      }}
+                    </EventsConsumer>
                 </select>
               </div>
             </div>
