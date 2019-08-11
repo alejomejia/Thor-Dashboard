@@ -9,6 +9,12 @@ class EventsForm extends Component {
     category: ''
   }
 
+  handleChange = e => {
+    this.setState({
+      [e.target.name] : e.target.value
+    })
+  }
+
   render() {
     return (
       <div className="events-form">
@@ -24,6 +30,7 @@ class EventsForm extends Component {
                   id="search"
                   className="custom-select" 
                   name="search" 
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
@@ -35,14 +42,16 @@ class EventsForm extends Component {
                 <select 
                   id="category"
                   className="custom-select" 
-                  name="category">
+                  name="category"
+                  onChange={this.handleChange}>
+                    <option value="">Select category</option>
                     <EventsConsumer>
                       {(value)=> {
                         return(
                           value.categories.map( category => (
                             <option 
                               key={category.id}
-                              value={category.name}
+                              value={category.id}
                             >
                               {category.name}
                             </option>
