@@ -2,9 +2,9 @@ import React, { Component, Fragment } from 'react';
 
 // Create context
 const context = React.createContext();
-export const EventsConsumer = context.Consumer;
+export const EventsCategoryConsumer = context.Consumer;
 
-class EventsContext extends Component {
+class EventsCategoryContext extends Component {
 
   state = {
     categories: []
@@ -45,4 +45,4 @@ class EventsContext extends Component {
   }
 }
 
-export default EventsContext;
+export default EventsCategoryContext;

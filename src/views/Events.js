@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import EventsContext from '../context/EventsContext';
+import EventsCategoryContext from '../context/EventsCategoryContext';
+import EventsResultsContext from '../context/EventsResultsContext';
 
 import PageTitle from '../components/PageTitle';
 import EventsForm from '../components/Events/EventsForm';
@@ -8,15 +9,17 @@ import EventsForm from '../components/Events/EventsForm';
 class Events extends Component {
   render() {
     return (
-      <EventsContext>
-        <PageTitle title="Events" />
-        <div className="content-wrapper">
-          <div className="container-fluid">
-            <EventsForm />
-            { /* <NewsList news={this.state.news} /> */ }
+      <EventsResultsContext>
+        <EventsCategoryContext>
+          <PageTitle title="Events" />
+          <div className="content-wrapper">
+            <div className="container-fluid">
+              <EventsForm />
+              { /* <NewsList news={this.state.news} /> */ }
+            </div>
           </div>
-        </div>
-      </EventsContext>
+        </EventsCategoryContext>
+      </EventsResultsContext>
     );
   }
 }
