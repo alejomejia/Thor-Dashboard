@@ -1,45 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './styles/NewsForm.sass'
 
-class NewsForm extends Component {
+class EventsForm extends Component {
 
   state = {
-    category: 'general',
-    country: 'co'
-  }
-
-  handleChange = e => {
-
-    if(e.target.name === 'category'){
-      // Asign the option value to state
-      this.setState({
-        category : e.target.value
-      }, () => {
-        // Send the value to change the API response with a callback
-        this.sendFormValues();
-      });
-    }
-
-    if(e.target.name === 'country'){
-      // Asign the option value to state
-      this.setState({
-        country : e.target.value
-      }, () => {
-        // Send the value to change the API response with a callback
-        this.sendFormValues();
-      });
-    }
-
-  }
-
-  sendFormValues = () => {
-    this.props.askForNews(this.state.category, this.state.country);
+    search: '',
+    categories: ''
   }
 
   render() {
     return (
-      <div className="news-form">
+      <div className="events-form">
         <div className="row">
           <div className="col-md-2">
             <form>
@@ -92,8 +63,8 @@ class NewsForm extends Component {
 }
 
 // Documentation
-NewsForm.propTypes = {
+EventsForm.propTypes = {
   askForNews: PropTypes.func.isRequired
 }
 
-export default NewsForm;
+export default EventsForm;
