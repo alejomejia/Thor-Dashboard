@@ -7,12 +7,10 @@ import { EventsResultsConsumer } from '../../context/EventsResultsContext';
 
 const EventsList = () => {
   return(
-
     <div className="events-list">
       <div className="card-columns">
         <EventsResultsConsumer>
           {(value) => {
-            console.log(value);
             return(
               value.events.map( event => (
                 <EventsItem key={event.id} event={event} />
