@@ -19,7 +19,7 @@ class EventsForm extends Component {
   render() {
     return (
       <EventsResultsConsumer>
-        {(value)=> {
+        {(value) => {
           return(
             <div className="events-form">
               <form onSubmit={e => {

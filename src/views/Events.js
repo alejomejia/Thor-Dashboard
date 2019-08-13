@@ -5,6 +5,7 @@ import EventsResultsContext from '../context/EventsResultsContext';
 
 import PageTitle from '../components/PageTitle';
 import EventsForm from '../components/Events/EventsForm';
+import EventsList from '../components/Events/EventsList';
 
 class Events extends Component {
   render() {
@@ -15,7 +16,7 @@ class Events extends Component {
           <div className="content-wrapper">
             <div className="container-fluid">
               <EventsForm />
-              { /* <NewsList news={this.state.news} /> */ }
+              <EventsList />
             </div>
           </div>
         </EventsCategoryContext>

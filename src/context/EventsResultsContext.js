@@ -22,7 +22,6 @@ class EventsResultsContext extends Component {
     this.setState({
       events
     });
-    
 
   }
 
@@ -31,7 +30,7 @@ class EventsResultsContext extends Component {
       <Fragment>
         <context.Provider
           value={{
-            events : this.state.search,
+            events : this.state.events,
             getSearch : this.getSearch
           }}
         >
